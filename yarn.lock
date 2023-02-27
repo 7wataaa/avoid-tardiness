@@ -2477,6 +2477,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chakra-ui/icon@npm:3.0.16":
+  version: 3.0.16
+  resolution: "@chakra-ui/icon@npm:3.0.16"
+  dependencies:
+    "@chakra-ui/shared-utils": 2.0.5
+  peerDependencies:
+    "@chakra-ui/system": ">=2.0.0"
+    react: ">=18"
+  checksum: fd69910c8e148cb2b2d053aa691d4486d79ae37aa63af8d00fa93adcebf070bbd49d81268fe5f7678c319acd46b6a59f517c587f647a34810ea3bb1ea8714d6e
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/icons@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "@chakra-ui/icons@npm:2.0.17"
+  dependencies:
+    "@chakra-ui/icon": 3.0.16
+  peerDependencies:
+    "@chakra-ui/system": ">=2.0.0"
+    react: ">=18"
+  checksum: b7f67435c5d6fa03eb9bf6f04b6335f7bd6b2e5db6cbb119b9cb8d5c24f91cb09c4df670fb0ffc4e854dfd2178cc29707e229b4b56dc29a05e566ee49359c916
+  languageName: node
+  linkType: hard
+
 "@chakra-ui/image@npm:1.1.10":
   version: 1.1.10
   resolution: "@chakra-ui/image@npm:1.1.10"
@@ -3388,6 +3412,13 @@ __metadata:
   version: 2.0.4
   resolution: "@chakra-ui/shared-utils@npm:2.0.4"
   checksum: 05eee356ac023068d1113beb2259b5e02a95d08546e692edae60e225b2b6034eaa5a517f013c51c8f069467963bb185bb36b85f0ca00498ef33c5bb56b32f87d
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/shared-utils@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@chakra-ui/shared-utils@npm:2.0.5"
+  checksum: d9095a4abb678e382f8fdf882a2e50fde5789267b9bf7165bd06babcbd0afcb0c8c319b78922b7ea9fdbf22659623fa8604cd76bcfec8750304fa4614c73a3f0
   languageName: node
   linkType: hard
 
@@ -7961,15 +7992,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/asciify@npm:^1.3.30":
-  version: 1.3.30
-  resolution: "@types/asciify@npm:1.3.30"
-  dependencies:
-    "@types/node": "*"
-  checksum: c80d94281dcd95ec1d68245421d4b179bc29a4c5c3cc327ff36f7764a647716c2e09bd154cf7ff0cde4c56734da481c39a5ffd874de2430462ab844c08063614
-  languageName: node
-  linkType: hard
-
 "@types/aws-lambda@npm:8.10.106":
   version: 8.10.106
   resolution: "@types/aws-lambda@npm:8.10.106"
@@ -9720,13 +9742,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:~0.2.0":
-  version: 0.2.0
-  resolution: "ansi-styles@npm:0.2.0"
-  checksum: 787e59947beb5505144737a95b7979979abbac53c26c1fc256dfc4e88a41523ebaa925d452cae4be8e799d794e1a7b27f52dfdac990350c7aeab58d0988fc253
-  languageName: node
-  linkType: hard
-
 "ansi-to-html@npm:^0.6.11":
   version: 0.6.15
   resolution: "ansi-to-html@npm:0.6.15"
@@ -10081,19 +10096,6 @@ __metadata:
   version: 2.0.6
   resolution: "asap@npm:2.0.6"
   checksum: c6d5e39fe1f15e4b87677460bd66b66050cd14c772269cee6688824c1410a08ab20254bb6784f9afb75af9144a9f9a7692d49547f4d19d715aeb7c0318f3136d
-  languageName: node
-  linkType: hard
-
-"asciify@npm:^1.3.5":
-  version: 1.3.5
-  resolution: "asciify@npm:1.3.5"
-  dependencies:
-    chalk: ~0.3.0
-    optimist: ~0.6.0
-    pad: 0.0.4
-  bin:
-    asciify: ./bin/asciify.js
-  checksum: 6a00a182cefb1a53522dd1aeeffeef03a4fdfdb85a5da4fc180aa225eee10dcdfd279169549a96ec43c22855992dac20bebb758f00ea7bdcdf1fef752673dc78
   languageName: node
   linkType: hard
 
@@ -11374,16 +11376,6 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: ee650b0a065b3d7a6fda258e75d3a86fc8e4effa55871da730a9e42ccb035bf5fd203525e5a1ef45ec2582ecc4f65b47eb11357c526b84dd29a14fb162c414d2
-  languageName: node
-  linkType: hard
-
-"chalk@npm:~0.3.0":
-  version: 0.3.0
-  resolution: "chalk@npm:0.3.0"
-  dependencies:
-    ansi-styles: ~0.2.0
-    has-color: ~0.1.0
-  checksum: 49a529fef0a1e18a9480ef1c74245b48b7fe090658bf2e027504d239853babbe116b0bd027a53ad2bcaa0a10eef26be86e23b061815a185eb67c9cc5dcf1029a
   languageName: node
   linkType: hard
 
@@ -15992,13 +15984,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"has-color@npm:~0.1.0":
-  version: 0.1.7
-  resolution: "has-color@npm:0.1.7"
-  checksum: c764308047c43f48fb421fc2a041b883547f3a3c8204cdfc0e36595da7bdf8ab317251f1511bdd0597e4be2fcf0fa29db5c52df81001e3b0b8d864ef1dbecbe3
-  languageName: node
-  linkType: hard
-
 "has-flag@npm:^3.0.0":
   version: 3.0.0
   resolution: "has-flag@npm:3.0.0"
@@ -19562,13 +19547,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:~0.0.1":
-  version: 0.0.10
-  resolution: "minimist@npm:0.0.10"
-  checksum: c505a020144b6e49f2b1c7d1e378f3692b7102e989b4a49338fc171eb4229ddddb430e779ff803dcb11854050e3fe3c2298962a7d73c20df7c2044c92b2ba1da
-  languageName: node
-  linkType: hard
-
 "minipass-collect@npm:^1.0.2":
   version: 1.0.2
   resolution: "minipass-collect@npm:1.0.2"
@@ -20408,16 +20386,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"optimist@npm:~0.6.0":
-  version: 0.6.1
-  resolution: "optimist@npm:0.6.1"
-  dependencies:
-    minimist: ~0.0.1
-    wordwrap: ~0.0.2
-  checksum: 8cb417328121e732dbfb4d94d53bb39b1406446b55323ed4ce787decc52394927e051ba879eb3ffa3171fe22a35ce13b460114b60effcead77443ee87c2f9b0f
-  languageName: node
-  linkType: hard
-
 "optionator@npm:^0.8.1":
   version: 0.8.3
   resolution: "optionator@npm:0.8.3"
@@ -20644,13 +20612,6 @@ __metadata:
     registry-url: ^5.0.0
     semver: ^6.2.0
   checksum: 60c29fe357af43f96c92c334aa0160cebde44e8e65c1e5f9b065efb3f501af812f268ec967a07757b56447834ef7f71458ebbab94425a9f09c271f348f9b764f
-  languageName: node
-  linkType: hard
-
-"pad@npm:0.0.4":
-  version: 0.0.4
-  resolution: "pad@npm:0.0.4"
-  checksum: 17ff484b4faad1c27bcc711f3a8ad4c61e1898dd08c05c633cbeb2bb06d997e8e184aa51f9b7b540b2e32a07b0af604a036514933821890b8de812386fb02950
   languageName: node
   linkType: hard
 
@@ -23113,8 +23074,6 @@ __metadata:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
     "@redwoodjs/core": 3.2.1
-    "@types/asciify": ^1.3.30
-    asciify: ^1.3.5
     dayjs: ^1.11.7
     framer-motion: ^8.3.3
     react-hook-form: ^7.41.5
@@ -26144,6 +26103,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:web"
   dependencies:
+    "@chakra-ui/icons": ^2.0.17
     "@chakra-ui/react": ^1
     "@emotion/react": ^11
     "@emotion/styled": ^11
@@ -26672,13 +26632,6 @@ __metadata:
   version: 1.0.0
   resolution: "wordwrap@npm:1.0.0"
   checksum: 7ed2e44f3c33c5c3e3771134d2b0aee4314c9e49c749e37f464bf69f2bcdf0cbf9419ca638098e2717cff4875c47f56a007532f6111c3319f557a2ca91278e92
-  languageName: node
-  linkType: hard
-
-"wordwrap@npm:~0.0.2":
-  version: 0.0.3
-  resolution: "wordwrap@npm:0.0.3"
-  checksum: b3b212f8b2167091f59bc60929ada2166eb157abb6c8c82e2a705fe5aa5876440c3966ab39eb6c7bcb2ff0ac0c8d9fba726a9c2057b83bd65cdc1858f9d816ce
   languageName: node
   linkType: hard
 

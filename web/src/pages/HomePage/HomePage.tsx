@@ -1,5 +1,14 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
+import { AddIcon, MinusIcon } from '@chakra-ui/icons'
+import {
+  Box,
+  Button,
+  FormLabel,
+  Heading,
+  IconButton,
+  Input,
+} from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import ja from 'dayjs/locale/ja'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
@@ -7,13 +16,16 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 
+import { Form, Submit, TextField } from '@redwoodjs/forms'
+import { MetaTags } from '@redwoodjs/web'
+
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(isSameOrBefore)
 dayjs.extend(isSameOrAfter)
 dayjs.locale(ja)
-import { FieldError, Form, Label, Submit, TimeField } from '@redwoodjs/forms'
-import { MetaTags } from '@redwoodjs/web'
+
+const TARGET_TIME = 'target-time'
 
 type TimeData = {
   region: string
@@ -252,25 +264,13 @@ const nearTimeCityData = (nowDate: Date, targetDate: Date, tzOffset = 9) => {
   }
 }
 
-const useNow = (interval = 1000): [Date] => {
-  const [time, setTime] = React.useState(new Date())
-  const updateTime = (): void => setTime(new Date())
-
-  React.useEffect(() => {
-    const _timer = setInterval(updateTime, interval)
-    return (): void => clearInterval(_timer)
-  }, [interval])
-
-  return [time]
-}
-
 const HomePage = () => {
-  const [now] = useNow()
-
   const [result, setResult] = useState<(TimeData & { date: Date }) | null>(null)
 
-  const onSubmit = (data: { main: `${number}:${number}` }) => {
-    const [h, m] = data['main'].split(':').map((s) => parseInt(s, 10))
+  const inputRef = useRef<HTMLInputElement>()
+
+  const onSubmit = (data: { [TARGET_TIME]: `${number}:${number}` }) => {
+    const [h, m] = data[TARGET_TIME].split(':').map((s) => parseInt(s, 10))
 
     const nowDate = dayjs().toDate()
     const targetDate = dayjs().hour(h).minute(m).toDate()
@@ -282,36 +282,54 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      <div>現在時刻: {`${now.toLocaleTimeString()}`}</div>
-
-      <Form onSubmit={onSubmit}>
-        <Label
-          name="目標(だった)時間: "
-          className="label"
-          errorClassName="label error"
-        />
-        <TimeField
-          name="main"
-          errorClassName="input error"
-          validation={{ required: true }}
-          defaultValue={dayjs().format('HH:00')}
-        />
-        <FieldError name="name" className="error-message" />
-
-        <Submit>実行</Submit>
-      </Form>
+      <Box w={'fit-content'} m="auto">
+        <Form onSubmit={onSubmit}>
+          <FormLabel m="0" display="block" htmlFor={TARGET_TIME}>
+            <Heading as="h3" size="md" my={3} textAlign="center">
+              目標時間
+            </Heading>
+          </FormLabel>
+          <Input
+            textAlign="center"
+            as={TextField}
+            name={TARGET_TIME}
+            size="lg"
+            display="inline"
+            type="time"
+            defaultValue={dayjs().format('HH:00')}
+            step={60 * 30}
+            ref={inputRef}
+          />
+          <Box my={2} display="flex" justifyContent="center" gap="5">
+            <IconButton
+              aria-label="Decrease time"
+              icon={<MinusIcon />}
+              size="lg"
+              onClick={() => {
+                inputRef.current.stepDown()
+              }}
+            />
+            <Button as={Submit} type="submit" colorScheme="teal" size="lg">
+              実行
+            </Button>
+            <IconButton
+              aria-label="Increase time"
+              icon={<AddIcon />}
+              size="lg"
+              onClick={() => {
+                inputRef.current.stepUp()
+              }}
+            />
+          </Box>
+        </Form>
+      </Box>
 
       {result && (
         <div>
-          {result.region}時間なら今は
-          {dayjs(result.date).subtract(9, 'hour').format('YYYY/MM/DD HH:mm')}
+          {`${result.region}時間 (${result.timezone}) なら今は
+        ${dayjs(result.date).format('YYYY/MM/DD HH:mm')}`}
         </div>
       )}
-
-      <div>
-        <div>2023/01/01 00:00 10代 学生 男性</div>
-        <div>待ち合わせに遅れた際に使用。これでなんとか助かりました！</div>
-      </div>
     </>
   )
 }
