@@ -8,6 +8,7 @@ import {
   Heading,
   IconButton,
   Input,
+  Text,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import ja from 'dayjs/locale/ja'
@@ -325,10 +326,16 @@ const HomePage = () => {
       </Box>
 
       {result && (
-        <div>
-          {`${result.region}時間 (${result.timezone}) なら今は
-        ${dayjs(result.date).format('YYYY/MM/DD HH:mm')}`}
-        </div>
+        <Box textAlign="center" width="100%">
+          <Heading
+            as="h2"
+            size="md"
+          >{`${result.region}時間 (${result.timezone})`}</Heading>
+          <Text my="1rem">なら今は</Text>
+          <Heading as="h2" size="md">{`${dayjs(result.date).format(
+            'MM/DD HH:mm'
+          )}`}</Heading>
+        </Box>
       )}
     </>
   )
